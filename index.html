@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Elim Chan</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+</head>
+<body>
+    <div class="portada">
+        <header class="header"> 
+            <nav class="header__nav  flex  flex--between">
+                <span class="header__logo">Elim Chan</span>
+                <button type="button" class="header__btnMenu" onclick="aperturaMenu()"><span></span><span></span><span></span></button>
+                <button type="button" class="header__btnCierre hide" onclick="cierreMenu()">
+                    <svg> 
+                        <circle class="circulo" cx="26" cy="26" r="25"></circle>
+                        <line class="linea1" x1="31" y1="19" x2="18" y2="32"></line>
+                        <line class="linea2" x1="31" y1="32" x2="18" y2="19"></line>
+                    </svg>
+                </button>
+                <div class="header__menu">
+                    <a href=""><span class="btn1">About Elim</span></a>
+                    <a href=""><span class="btn2">Timeline</span></a>
+                    <a href=""><span class="btn3">Concerts</span></a>
+                    <a href=""><span class="btn4">Press</span></a>
+                    <a href=""><span class="btn5">Media gallery</span></a>
+                    <a href=""><span class="btn6">Contact</span></a>
+                </div>
+            </nav>
+        </header>
+
+        <div class="banner">
+            <div class="banner__content">
+                <h1 class="banner__title">
+                    <span>This is</span> 
+                    <span><span>Elim</span></span> 
+                    <span><span>Chan</span></span>
+                </h1>
+        
+                <span class="banner__slogan">Be the conductor of your own life.</span>
+        
+                <a class="banner__link" href="">Tell me more</a>
+            </div> 
+    
+            <div class="banner__foto">
+                <div class="banner__containerImg">
+                    <img src="img/elimchanhomepageheader-1024x1024.jpg" alt="La compositora Elim Chan enseña su batuta">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var menu = document.querySelector('.header__menu')
+        var btnMenu = document.querySelector('.header__btnMenu')
+        var btnCierre = document.querySelector('.header__btnCierre')
+        var circulo = document.querySelector('.circulo')
+        var linea1 = document.querySelector('.linea1')
+        var linea2 = document.querySelector('.linea2')
+        
+        var btn1 = document.querySelector('.btn1')
+        var btn2 = document.querySelector('.btn2')
+        var btn3 = document.querySelector('.btn3')
+        var btn4 = document.querySelector('.btn4')
+        var btn5 = document.querySelector('.btn5')
+        var btn6 = document.querySelector('.btn6')
+
+        var estadoMenu = 0
+
+        function aperturaMenu(){
+            menu.classList.add("menuMobile")
+            btnMenu.classList.add('header__btnMenu--pulsado')
+            btnCierre.classList.remove('hide')
+            btnCierre.style.zIndex = "600"
+            circulo.classList.add('animCircle')
+            linea1.classList.remove('animAspaCierre')
+            linea2.classList.remove('animAspaCierre')
+            linea1.classList.add('animAspa')
+            linea2.classList.add('animAspa')
+     
+            btn1.classList.add('animLinksMenu')
+            btn2.classList.add('animLinksMenu')
+            btn3.classList.add('animLinksMenu')
+            btn4.classList.add('animLinksMenu')
+            btn5.classList.add('animLinksMenu')
+            btn6.classList.add('animLinksMenu')
+
+        }   
+
+        function cierreMenu(){
+            menu.classList.remove("menuMobile")
+            btnMenu.classList.remove('header__btnMenu--pulsado')
+            btnCierre.style.zIndex = "400"
+            circulo.classList.remove('animCircle')
+            linea1.classList.remove('animAspa')
+            linea2.classList.remove('animAspa')
+            linea1.classList.add('animAspaCierre')
+            linea2.classList.add('animAspaCierre')
+
+            setTimeout(function(){ 
+                btn1.classList.remove('animLinksMenu')
+                btn2.classList.remove('animLinksMenu')
+                btn3.classList.remove('animLinksMenu')
+                btn4.classList.remove('animLinksMenu')
+                btn5.classList.remove('animLinksMenu')
+                btn6.classList.remove('animLinksMenu')
+            }, 1000);
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+* { margin: 0; padding: 0; border: none; outline: none; box-sizing: border-box;}
+img { max-width: 100%;}
+a { text-decoration: none; color: var(--color-primary); font-family: titles; font-size: 1.2em;}
+button { cursor: pointer; background-color: transparent;}
+
+:root {
+    --color-primary: #dfab82;
+    --color-secondary: #3a3550;
+    --color-secondary2: #b9b4d2;
+    --color-complementary: #174233;
+    --color-complementary2: #e1eaec;
+    --color-white: #fff;
+    --color-black: #111;
+    --color-grey: #252525;
+}
+
+.flex {
+    display: flex;
+}
+.flex--between {
+    justify-content: space-between;
+}
+.noWrap {
+    flex-wrap: nowrap;
+}
+.hide {
+    display: none;
+}
+
+@font-face {
+    font-family: titles;
+    src: url(../typo/Canela-Regular-Web.woff);
+}
+@font-face {
+    font-family: texts;
+    src: url(../typo/Muli-Regular.woff);
+}
+html {
+    font-size: 16px;
+}
+body {
+    font-family: texts; color: var(--color-black);
+    overflow-x: hidden;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: titles;
+    font-weight: lighter;
+}
+.portada {
+    background-color: var(--color-secondary);
+    height: 110vh;
+}
+.header {
+    width: 100%;
+    max-width: 1380px;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+.header__nav {
+    padding: 10px 10%;
+    position: relative;
+}
+.header__logo {
+    font-family: titles;
+    color: var(--color-secondary2);
+    font-size: 1.2em;
+    opacity: 0;
+    position: relative;
+    left: -50px;
+    z-index: 500;
+    animation: animLogo .7s ease-in-out 2.3s forwards;
+}
+.header__btnMenu {
+    display: none;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    z-index: 500;
+    position: absolute;
+    top: 0;
+    right: 46px
+}
+.header__btnMenu span {
+    display: block;
+    width: 30px;
+    height: 1px;
+    position: relative;
+    left: 0;
+    transition: .4s ease-in-out;
+    background-color: var(--color-white);
+}
+.header__btnMenu span:nth-child(1) {
+    width: 25px;
+}
+.header__btnMenu span:nth-child(2) {
+    top: -9px;
+}
+.header__btnMenu span:nth-child(3) {
+    top: 7px;
+}
+.header__btnMenu--pulsado span:nth-child(1){
+    left: -25px;
+}
+.header__btnMenu--pulsado span:nth-child(2){
+    left: 30px;
+}
+.header__btnMenu--pulsado span:nth-child(3){
+    left: 30px;
+}
+.header__btnCierre {
+    width: 52px;
+    height: 52px;
+    z-index: 600;
+    position: absolute;
+    top: -10px;
+    right: 35px;
+}
+svg {
+    width: 52px;
+    height: 52px;
+    transform: rotate(-90deg);
+}
+svg circle {
+    fill: none;
+    stroke: var(--color-secondary2);
+    stroke-width: 2px;
+    stroke-dasharray: 160;
+    stroke-dashoffset: 160;
+    transition: 10s ease-in-out;
+}
+svg .animCircle {
+    animation: animCircle .4s ease-in-out forwards;
+}
+@keyframes animCircle {
+    from {stroke-dashoffset: 160;}
+    to{stroke-dashoffset: 0;}
+}
+
+svg line {
+    stroke: var(--color-white);
+    stroke-width: 2px;
+    stroke-dasharray: 20;
+    stroke-dashoffset: 20;
+}
+svg .animAspa {
+    animation: animAspa .4s ease-in-out forwards;
+}
+@keyframes animAspa {
+    from {stroke-dashoffset: 20;}
+    to{stroke-dashoffset: 0;}
+}
+
+svg .animAspaCierre {
+    animation: animAspaCierre .4s ease-in-out forwards;
+}
+@keyframes animAspaCierre {
+    from {stroke-dashoffset: 0;}
+    to{stroke-dashoffset: 20;}
+}
+
+
+@keyframes animLogo {
+    from {opacity: 0; left: -50px;}
+    to { opacity: 1; left: 0px;}
+}
+.header__menu {
+    margin-right: 10%;
+    opacity: 0;
+    animation: animMenu .7s ease-in-out 1.9s forwards;
+}
+@keyframes animMenu {
+    from {opacity: 0;}
+    to { opacity: 1;}
+}
+.header__menu a {
+    color: var(--color-white);
+    padding: 8px 12px;
+}
+.banner {
+    width: 100%;
+    max-width: 1380px;
+    margin: 0 auto;
+    position: relative;
+}
+.banner__content {
+    position: absolute;
+    top: 60px;
+    z-index: 20;
+}
+.banner__title {
+    color: var(--color-white);
+    line-height: 5.5em;
+}
+.banner__title > span {
+    display: block;
+    overflow: hidden;
+}
+.banner__title > span:nth-child(1) {
+    font-size: .6em;
+    margin-bottom: -60px;
+    padding-left: 50px;
+    opacity: 0;
+    animation: animThisIs .7s ease-in-out 1.5s forwards;
+}
+@keyframes animThisIs {
+    from {opacity: 0;}
+    to { opacity: 1;}
+}
+.banner__title > span:nth-child(2),
+.banner__title > span:nth-child(3) {
+    font-size: 6em;
+}
+.banner__title > span:nth-child(2) span{
+    position: relative;
+    top: 175px;
+    animation: animElim .5s ease-in-out .8s forwards;
+}
+.banner__title > span:nth-child(3) span{
+    position: relative;
+    top: 175px;
+    animation: animChan .5s ease-in-out 1s forwards;
+}
+@keyframes animElim {
+    from {top: 175px}
+    to { top: 0}
+}
+@keyframes animChan {
+    from {top: 175px}
+    to { top: 0}
+}
+.banner__slogan {
+    font-size: 1.2em;
+    color: var(--color-white);
+    display: block;
+    margin: 30px 0;
+    opacity: 0;
+    animation: animSlogan .7s ease-in-out 1.7s forwards;
+}
+@keyframes animSlogan {
+    from {opacity: 0;}
+    to { opacity: 1;}
+}
+.banner__foto {
+    position: relative;
+    right: 0;
+    top: 75px;
+    z-index: 10;
+    margin-left: auto;
+    width: 1024px;
+    height: 1024px;
+}
+.banner__containerImg {
+    width: 0%;
+    height: 100%;
+    overflow: hidden;
+    animation: animContainerImg 1s ease-in-out .8s forwards;
+}
+@keyframes animContainerImg {
+    from { width: 0%;}
+    to {width: 100%;}
+}
+.banner__foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.banner__foto::before {
+    content: "";
+    width: 0%;
+    height: 100%;
+    background-color: var(--color-grey);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    animation: animFondoGrisImg .8s ease-in-out forwards;
+}
+@keyframes animFondoGrisImg {
+    from { width: 0%;}
+    to { width: 100%;}
+}
+
+.banner__link {
+    display: block;
+    height: 30px;
+    width: max-content;
+    overflow: hidden;
+    opacity: 0;
+    position: relative;
+    animation: animLink .7s ease-in-out 2s forwards;
+}
+.banner__link::after,
+.banner__link::before {
+    content: "";
+    background-color: var(--color-primary);
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: -110px;
+}
+.banner__link::before {
+    transition: .5s ease-in-out;
+}
+.banner__link::after {
+    animation: animLinea 3s ease-in-out 2.4s forwards;
+}
+.banner__link:hover::before {
+    left: 0;
+}
+@keyframes animLink {
+    from {opacity: 0;}
+    to { opacity: 1;}
+}
+@keyframes animLinea {
+    0%{left: -110px;}
+    30%{left: 0px;}
+    60%{left: 110px;}
+    60.1%{left: -110px;}
+    100%{left: -75px;}
+}
